@@ -16,7 +16,11 @@ This week you will be introduced to RStudio and learn how to start a new analysi
 * Exploring the data’s structure
 
 ### Module 2: Wrangling Data
-xxx
+This week you will learn how to transform and analyze data the tidy way using the dplyr package. This module will cover:
+
+* Filtering, selecting, arranging, mutating, summarizing data
+* How to join two data sets for more insight
+* Chaining analyses functions with pipes for efficiency and readability
 
 ### Module 3: Visualizing Data
 xxx
