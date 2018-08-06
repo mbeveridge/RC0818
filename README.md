@@ -15,6 +15,7 @@ This week you will be introduced to RStudio and learn how to start a new analysi
 * How to import data like CSVs, Excel spreadsheets, XML
 * Exploring the data’s structure
 
+
 ### Module 2: Wrangling Data
 This week you will learn how to transform and analyze data the tidy way using the dplyr package. This module will cover:
 
@@ -22,11 +23,20 @@ This week you will learn how to transform and analyze data the tidy way using th
 * How to join two data sets for more insight
 * Chaining analyses functions with pipes for efficiency and readability
 
+
 ### Module 3: Visualizing Data
-xxx
+This week, you’ll learn about the grammar of graphics and how to use the ggplot2 package to make quick exploratory data visualizations. This module will cover:
+
+* The aesthetics of data visualizations
+* How to create different charts like, bar, box, line, scatterplots
+* Grouping for charts
+* How to create facets or small multiples with the data
+* Labels and titles for visualizations
+
 
 ### Module 4: Spatial Analysis
 xxx
+
 
 ### Module 5: Publishing for Reproducibility
 xxx
