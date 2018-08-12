@@ -35,7 +35,12 @@ This week, you’ll learn about the grammar of graphics and how to use the ggplo
 
 
 ### Module 4: Spatial Analysis
-xxx
+This week you will learn how to visualize geographical data and look for neighborhood racial profiling disparities using Census data and traffic stop data from Connecticut. This module will cover:
+
+* Creating interactive maps with the R Leaflet package
+* How to geolocate addresses in R
+* Importing and visualizing shapefiles
+* Points in a polygon analysis that merge location data and boundaries for deeper insights
 
 
 ### Module 5: Publishing for Reproducibility
