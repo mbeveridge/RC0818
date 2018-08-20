@@ -44,4 +44,10 @@ This week you will learn how to visualize geographical data and look for neighbo
 
 
 ### Module 5: Publishing for Reproducibility
-xxx
+This week you will learn how to use RMarkdown to present your analysis in a narrative format. You’ll also learn how to log changes to your project with version-control software and publish your analysis on the Internet. This module will cover:
+
+* The git version control software and its integration with Github
+* How data journalists use GitHub and RMarkdown and other notebooks to publish their work
+* How to use the Markdown markup language to annotate RMarkdown
+* How to create a new git code repository and start tracking code
+* How to connect the repository to GitHub and publish to Github Pages
