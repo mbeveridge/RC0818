@@ -1,0 +1,105 @@
+---
+title: "Russian Tweets"
+output:
+  github_document: default
+  html_notebook: default
+---
+
+# Russian Tweets (file 1 of 13)
+
+```{r setup}
+library(tidyverse)
+library(lubridate)
+```
+
+
+## Data import
+
+Data downloaded from [https://github.com/fivethirtyeight/russian-troll-tweets/]
+
+```{r}
+# Only the 1st file has been imported
+
+russian_tweets_raw <- read_csv("data/Mod1/IRAhandle_tweets_1.csv")
+russian_tweets_raw                                                  # print data, to look at
+glimpse(russian_tweets_raw)                                         # summary, cols transposed
+```
+
+
+Comments on some columns (* means might be useful for viz) :
+
+  external_author_id
+  author = The handle sending the tweet
+  content = The text of the tweet
+  region = "United States" 159k of 244k rows, Unknown 58k, etc
+  language = "English" for 190k of 244k rows; Russian 38k; Italian 6k, etc
+  *publish_date = d/m/yyyy (stored as character vector) : 1st/10/11/12/13th of Jan, 2015-2018
+  harvested_date = ditto-ish
+  *following = The number of accounts the handle was following at the time of the tweet
+  *followers = The number of followers the handle had at the time of the tweet
+  updates
+  post_type = Indicates if the tweet was a retweet or a quote-tweet
+  account_type = Specific account theme, as coded by Linvill and Warren
+  *retweet = 0 or 1
+  *account_category = General account theme, as coded by Linvill and Warren
+  new_june_2018 = A binary indicator of whether the handle was newly listed in June 2018
+
+
+## Basic EDA
+
+```{r}
+# to get a sense of what's going on in this dataset :
+
+russian_tweets_raw %>% count(region)             # 17 rows
+russian_tweets_raw %>% count(language)           # 49 rows
+russian_tweets_raw %>% count(following)          # 5780 rows ...only see the first 1000
+russian_tweets_raw %>% count(account_category)   # 8 rows
+russian_tweets_raw %>% count(account_type)       # 14 rows
+russian_tweets_raw %>% count(post_type)          # 3 rows
+russian_tweets_raw %>% count(retweet)            # 2 rows
+```
+
+
+
+```{r}
+# Create dates instead of text strings (and ignore hour & minutes); use only a few of the variables :
+
+russian_tweets <- russian_tweets_raw %>%
+  mutate(tweet_date = date(mdy_hm(publish_date))) %>%
+  select(account_category, region, language, following, followers, publish_date, tweet_date)
+
+russian_tweets
+```
+
+
+
+```{r}
+# 1a (scatterplot)
+ggplot(russian_tweets, aes(following, followers)) +
+  geom_point()
+
+# 1b (scatterplot with facets)
+ggplot(russian_tweets, aes(following, followers)) +
+  geom_point() +
+  facet_wrap(~ account_category)
+
+# 2a (histogram)
+ggplot(russian_tweets, aes(tweet_date)) +
+  geom_freqpoly() +
+  facet_wrap(~ account_category)
+
+# 2b (filtered histogram with facets)
+russian_tweets %>%
+  filter(account_category == "RightTroll") %>%
+ggplot(aes(tweet_date, colour = region)) +
+  geom_freqpoly()
+
+# 2c (2b with binwidth = 7, instead of default bins = 30)
+russian_tweets %>%
+  filter(account_category == "RightTroll") %>%
+ggplot(aes(tweet_date, colour = region)) +
+  geom_freqpoly(binwidth = 7)
+```
+
+
+
