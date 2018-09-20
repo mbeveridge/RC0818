@@ -51,3 +51,7 @@ This week you will learn how to use RMarkdown to present your analysis in a narr
 * How to use the Markdown markup language to annotate RMarkdown
 * How to create a new git code repository and start tracking code
 * How to connect the repository to GitHub and publish to Github Pages
+
+---
+
+![certificate](RC0818_Certificate.png "certificate")
